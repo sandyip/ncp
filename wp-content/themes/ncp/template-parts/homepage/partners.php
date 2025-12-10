@@ -1,25 +1,28 @@
 <section class="partners pb-lg-96 pb-64">
   <div class="container">
-    <div class="section-title mb-16">
-      <p class="text-center text-20 leading-150 text-title fw-600">Our Partners</p>
-    </div>
+    <?php if ($section_title = get_sub_field('section_title')) : ?>
+      <div class="section-title mb-16">
+        <p class="text-center text-20 leading-150 text-title fw-600"><?php echo esc_html($section_title); ?></p>
+      </div>
+    <?php endif; ?>
 
-    <div class="partners-slider">
-      <a href="#" class="companies-card">
-        <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/partner1.png" alt="" class="img-fluid">
-      </a>
-      <a href="#" class="companies-card">
-        <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/partner2.png" alt="" class="img-fluid">
-      </a>
-      <a href="#" class="companies-card">
-        <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/partner3.png" alt="" class="img-fluid">
-      </a>
-      <a href="#" class="companies-card">
-        <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/partner4.png" alt="" class="img-fluid">
-      </a>
-      <a href="#" class="companies-card">
-        <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/partner5.png" alt="" class="img-fluid">
-      </a>
-    </div>
+    <?php if (have_rows('add_partners')) : ?>
+      <div class="partners-slider">
+        <?php while (have_rows('add_partners')) :
+          the_row(); ?>
+          <?php
+          $image = get_sub_field('image');
+          $url = get_sub_field('url');
+          if ($image && $url) : ?>
+
+            <a href="<?php echo esc_url($url); ?>" class="companies-card">
+
+              <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="img-fluid">
+            </a>
+
+          <?php endif; ?>
+        <?php endwhile; ?>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
