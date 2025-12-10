@@ -91,3 +91,18 @@ function preload_theme_fonts()
 ';
 }
 add_action('wp_head', 'preload_theme_fonts', 1);
+
+
+// acf theme options
+add_action('acf/init', function() {
+  if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+  }
+});
