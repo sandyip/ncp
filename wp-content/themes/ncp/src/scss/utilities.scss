@@ -1,0 +1,233 @@
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+$size: 36;
+
+/* MARGIN PADDDING */
+@for $i from 0 through $size {
+    .m-#{$i*4} {
+        margin: #{$i * 0.4}rem !important;
+    }
+
+    .my-#{$i*4} {
+        margin: #{$i * 0.4}rem 0 !important;
+    }
+
+    .mx-#{$i*4} {
+        margin-left: #{$i * 0.4}rem !important;
+        margin-right: #{$i * 0.4}rem !important;
+    }
+
+    .mt-#{$i*4} {
+        margin-top: #{$i * 0.4}rem !important;
+    }
+
+    .mb-#{$i*4} {
+        margin-bottom: #{$i * 0.4}rem !important;
+    }
+
+    .ml-#{$i*4} {
+        margin-left: #{$i * 0.4}rem !important;
+    }
+
+    .mr-#{$i*4} {
+        margin-right: #{$i * 0.4}rem !important;
+    }
+
+    .p-#{$i*4} {
+        padding: #{$i * 0.4}rem !important;
+    }
+
+    .py-#{$i*4} {
+        padding-top: #{$i * 0.4}rem !important;
+        padding-bottom: #{$i * 0.4}rem !important;
+    }
+
+    .px-#{$i*4} {
+        padding-left: #{$i * 0.4}rem !important;
+        padding-right: #{$i * 0.4}rem !important;
+    }
+
+    .pt-#{$i*4} {
+        padding-top: #{$i * 0.4}rem !important;
+    }
+
+    .pb-#{$i*4} {
+        padding-bottom: #{$i * 0.4}rem !important;
+    }
+
+    .pl-#{$i*4} {
+        padding-left: #{$i * 0.4}rem !important;
+    }
+
+    .pr-#{$i*4} {
+        padding-right: #{$i * 0.4}rem !important;
+    }
+}
+
+@each $bp, $screen in $breakpoints {
+    @media (min-width: #{$screen}) {
+        @for $i from 0 through $size {
+            .m-#{$bp}-#{$i*4} {
+                margin: #{$i * 0.4}rem !important;
+            }
+
+            .my-#{$bp}-#{$i*4} {
+                margin: #{$i * 0.4}rem 0 !important;
+            }
+
+            .mx-#{$bp}-#{$i*4} {
+                margin-left: #{$i * 0.4}rem !important;
+                margin-right: #{$i * 0.4}rem !important;
+            }
+
+            .mt-#{$bp}-#{$i*4} {
+                margin-top: #{$i * 0.4}rem !important;
+            }
+
+            .mb-#{$bp}-#{$i*4} {
+                margin-bottom: #{$i * 0.4}rem !important;
+            }
+
+            .ml-#{$bp}-#{$i*4} {
+                margin-left: #{$i * 0.4}rem !important;
+            }
+
+            .mr-#{$bp}-#{$i*4} {
+                margin-right: #{$i * 0.4}rem !important;
+            }
+
+            .p-#{$bp}-#{$i*4} {
+                padding: #{$i * 0.4}rem !important;
+            }
+
+            .py-#{$bp}-#{$i*4} {
+                padding-top: #{$i * 0.4}rem !important;
+                padding-bottom: #{$i * 0.4}rem !important;
+            }
+
+            .px-#{$bp}-#{$i*4} {
+                padding-left: #{$i * 0.4}rem !important;
+                padding-right: #{$i * 0.4}rem !important;
+            }
+
+            .pt-#{$bp}-#{$i*4} {
+                padding-top: #{$i * 0.4}rem !important;
+            }
+
+            .pb-#{$bp}-#{$i*4} {
+                padding-bottom: #{$i * 0.4}rem !important;
+            }
+
+            .pl-#{$bp}-#{$i*4} {
+                padding-left: #{$i * 0.4}rem !important;
+            }
+
+            .pr-#{$bp}-#{$i*4} {
+                padding-right: #{$i * 0.4}rem !important;
+            }
+        }
+    }
+}
+
+/* BORDER */
+.rounded {
+    border-radius: 50% !important;
+}
+
+@for $i from 0 through 13 {
+    .rounded-#{$i*4} {
+        border-radius: $i * 0.4rem;
+    }
+}
+
+@each $bp, $screen in $breakpoints {
+    @media (min-width: #{$screen}) {
+        @for $i from 0 through 13 {
+            .rounded-#{$bp}-#{$i*4} {
+                border-radius: #{$i * 0.4}rem !important;
+            }
+        }
+    }
+}
+
+/* GAPS */
+@for $i from 0 through 16 {
+    $gap: $i * 0.4rem;
+
+    .gap-#{$i*4} {
+        gap: $gap !important;
+    }
+
+    .gap-x-#{$i*4} {
+        column-gap: $gap !important;
+    }
+
+    .gap-y-#{$i*4} {
+        row-gap: $gap !important;
+    }
+}
+
+@each $bp, $screen in $breakpoints {
+    @media (min-width: #{$screen}) {
+        @for $i from 0 through 16 {
+            $gap: $i * 0.4rem;
+
+            .gap-#{$bp}-#{$i*4} {
+                gap: $gap !important;
+            }
+
+            .gap-x-#{$bp}-#{$i*4} {
+                column-gap: $gap !important;
+            }
+
+            .gap-y-#{$bp}-#{$i*4} {
+                row-gap: $gap !important;
+            }
+        }
+    }
+}
+
+/* OPACITY */
+@for $i from 0 through 10 {
+    .opacity-#{$i*10} {
+        opacity: $i * 0.1;
+    }
+}
+
+@each $bp, $screen in $breakpoints {
+    @media (min-width: #{$screen}) {
+        @for $i from 0 through 10 {
+            .opacity-#{$bp}-#{$i*10} {
+                opacity: #{$i * 0.1} !important;
+            }
+        }
+    }
+}
+
+/* FONT WEIGHT*/
+@for $i from 3 through 9 {
+    .fw-#{$i * 100} {
+        font-weight: $i * 100;
+    }
+}
+
+/*Line Height*/
+@for $i from 0 through 10 {
+    $percent: (
+        $i * 5 + 100
+    );
+
+.leading-#{$percent} {
+    line-height: $percent + 0%;
+}
+}
+
+.grecaptcha-badge,
+.wpcf7-response-output {
+    display: none;
+}

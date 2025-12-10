@@ -1,0 +1,81 @@
+.error-page {
+	background: url("../images/cloud.png") no-repeat center / cover;
+	padding-bottom: 100px;
+	position: relative;
+
+	&::before {
+		content: "404";
+		position: absolute;
+		top: 0;
+		left: 45%;
+		transform: translateX(-50%);
+		color: var(--primary-light);
+		font-family: var(--verdana);
+		font-size: 200px;
+		font-style: italic;
+		font-weight: 700;
+		line-height: 130%;
+		letter-spacing: -25.6px;
+		opacity: 0.25;
+		mix-blend-mode: hard-light;
+		pointer-events: none;
+	}
+
+	.section-title {
+		padding-top: 190px;
+
+		h1 {
+			letter-spacing: -3.2px;
+			background: linear-gradient(87deg, #0e3a7c 10.16%, #24b2f0 89.3%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+
+	a {
+		letter-spacing: -0.14px;
+	}
+}
+
+@media (min-width: 575px) {
+	.error-page {
+		&::before {
+			font-size: 300px;
+			top: -15%;
+		}
+	}
+}
+
+@media (min-width: 650px) {
+	.error-page {
+		&::before {
+			font-size: 312px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.error-page {
+		padding-bottom: 182px;
+
+		&::before {
+			top: -19%;
+			font-size: 421px;
+		}
+
+		.section-title {
+			padding-top: 290px;
+			max-width: 620px;
+			margin: auto;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.error-page {
+		&::before {
+			font-size: 512px;
+		}
+	}
+}

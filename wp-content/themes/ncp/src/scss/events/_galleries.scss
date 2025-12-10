@@ -1,0 +1,47 @@
+.galleries {
+	.section-title {
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.gallery {
+		column-count: 2;
+		column-gap: 1.2rem;
+
+		img {
+			width: 100%;
+			height: 100%;
+      margin-bottom: 1.2rem;
+			object-fit: cover;
+      border-radius: 1.6rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.galleries {
+		.gallery {
+			column-count: 3;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.galleries {
+		.section-title {
+			max-width: 578px;
+		}
+		.gallery {
+			column-count: 4;
+		}
+	}
+}
+
+@media (min-width: 1199px) {
+	.galleries {
+		.gallery {
+			column-count: 5;
+		}
+	}
+}

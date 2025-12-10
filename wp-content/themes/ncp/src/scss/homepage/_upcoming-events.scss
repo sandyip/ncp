@@ -1,0 +1,103 @@
+.upcoming-events {
+	background: linear-gradient(180deg, #dcf3fd 0%, #f3f8fc 33.54%);
+
+	.section-title {
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.upcoming-event-card {
+		height: 512px;
+		transition: all 0.2s ease-in-out;
+		position: relative;
+		overflow: hidden;
+
+		.upcoming-event-img {
+			height: 100%;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				background: linear-gradient(
+					180deg,
+					rgba(8, 20, 50, 0) 50%,
+					rgba(8, 20, 50, 0.8) 100%
+				);
+			}
+		}
+
+		.link-arrow {
+			position: absolute;
+			z-index: 2;
+			top: 2%;
+			right: 2%;
+			display: none;
+		}
+
+		.upcoming-event-card-content {
+			position: absolute;
+			bottom: 0;
+			z-index: 2;
+			left: 0;
+
+			> div {
+				display: flex;
+				gap: 4px;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.upcoming-events {
+		.section-title {
+			max-width: 830px;
+			margin: auto;
+			h2 {
+				text-align: right;
+				max-width: 380px;
+			}
+			p {
+				max-width: 380px;
+				position: relative;
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: -15px;
+					left: -32px;
+					height: 104px;
+					width: 4px;
+					background-color: var(--primary-light);
+				}
+			}
+		}
+
+		.upcoming-event-card {
+			max-width: 248px;
+			.upcoming-event-card-content {
+
+				> div {
+					display: none;
+				}
+			}
+
+			&:hover {
+				max-width: 488px;
+				height: 512px !important;
+
+				.link-arrow {
+					display: block;
+				}
+
+				.upcoming-event-card-content {
+					> div {
+						display: flex;
+					}
+				}
+			}
+		}
+	}
+}

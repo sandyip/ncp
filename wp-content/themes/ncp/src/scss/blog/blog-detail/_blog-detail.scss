@@ -1,0 +1,18 @@
+.blog-detail {
+	.row {
+		--bs-gutter-x: 2rem;
+		--bs-gutter-y: 2rem;
+	}
+}
+
+.blog-comment {
+	.section-title {
+    h2{
+      font-family: var(--inter);
+    }
+		button {
+			background-color: #0e3a7c;
+      letter-spacing: -0.14px;
+		}
+	}
+}

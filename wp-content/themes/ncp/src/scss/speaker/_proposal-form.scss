@@ -1,0 +1,63 @@
+.proposal-form {
+	.row {
+		--bs-gutter-x: 1.4rem;
+		--bs-gutter-y: 4rem;
+	}
+
+	.section-title {
+		div {
+			img {
+				width: 40px;
+				height: 40px;
+				object-fit: cover;
+			}
+		}
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.general-content-box {
+		> p:first-child {
+			font-weight: 700;
+			font-size: 1.6rem;
+			line-height: 150%;
+		}
+
+		ol {
+			// list-style: none !important;
+			padding: 0.4rem 3.2rem;
+			border-left: 4px solid var(--primary-light);
+			li {
+				list-style: none !important;
+				display: flex;
+				gap: 8px;
+
+				+ li {
+					margin-top: 1.6rem;
+				}
+
+				span {
+					background-color: var(--background);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 24px;
+					height: 24px;
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+
+	.speaker-proposal-form {
+		h3 {
+			letter-spacing: -0.48px;
+		}
+
+		.row {
+			--bs-gutter-x: 0.8rem;
+			--bs-gutter-y: 0.8rem;
+		}
+	}
+}

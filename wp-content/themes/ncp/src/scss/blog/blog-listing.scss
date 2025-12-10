@@ -1,0 +1,25 @@
+.blog-listing {
+	.section-title {
+		h1 {
+			background: linear-gradient(87deg, #0e3a7c 10.16%, #24b2f0 89.3%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: -2.4px;
+		}
+	}
+
+	.blog-listing-aside {
+		position: sticky;
+		top: 50px;
+	}
+}
+
+@media (min-width: 992px) {
+	.blog-listing {
+		.section-title {
+			max-width: 726px;
+			margin: auto;
+		}
+	}
+}

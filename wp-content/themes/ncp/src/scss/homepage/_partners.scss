@@ -1,0 +1,24 @@
+.partners {
+	p {
+		letter-spacing: -0.48px;
+		line-height: 140%;
+	}
+
+	.partners-slider {
+		margin: 0 -2.4rem;
+
+		.slick-slide {
+			height: fit-content !important;
+
+			> div {
+				margin: 0 2.4rem;
+			}
+		}
+
+		img {
+			width: 171px;
+			// height: 96px;
+			object-fit: cover;
+		}
+	}
+}

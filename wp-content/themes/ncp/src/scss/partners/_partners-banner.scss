@@ -1,0 +1,25 @@
+.partners-banner {
+	.section-title {
+		h1 {
+			letter-spacing: -3.2px;
+			background: linear-gradient(87deg, #0e3a7c 10.16%, #24b2f0 89.3%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.partners-banner {
+		.section-title {
+			max-width: 1044px;
+			margin: auto;
+
+			p {
+				max-width: 831px;
+				margin: auto;
+			}
+		}
+	}
+}

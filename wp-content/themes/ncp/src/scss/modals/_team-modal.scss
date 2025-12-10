@@ -1,0 +1,91 @@
+// @use "../mixins/mixins";
+
+#teamModal {
+	.makura-modal-header {
+		h3 {
+			font-family: var(--inter);
+		}
+    p{
+      display: inline-block;
+    }
+	}
+
+	.makura-modal-content {
+		position: relative;
+		height: 100vh;
+		// @include mixins.customScrollBar();
+
+		[close-modal] {
+			position: absolute;
+			right: 5%;
+			top: 3%;
+			max-width: 7.5rem;
+
+			svg {
+				max-width: 100%;
+				path {
+					fill: var(--black);
+				}
+			}
+		}
+
+		.makura-modal-body {
+			height: calc(100% - 432px + 85px);
+			overflow: hidden;
+		}
+	}
+
+	.team-image-container {
+		max-width: 150px;
+		aspect-ratio: 168/209;
+		border-radius: 0.4rem;
+		overflow: hidden;
+		position: relative;
+		z-index: 7;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 13%;
+			left: 0;
+			width: 150px;
+			height: 164px;
+			background-color: var(--accent);
+			z-index: -1;
+			border-radius: 2.4rem;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.team-member-content {
+		height: calc(100% - 3rem);
+		overflow: auto;
+
+		p {
+			line-height: 150%;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	#alumniModal {
+		.makura-modal-content {
+			max-width: 564px;
+
+			[close-modal] {
+				left: -18% !important;
+
+				svg {
+					path {
+						fill: var(--white);
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+.cloud-cta-inner {
+	background: var(--primary) url("../images/professional.png") no-repeat center/cover;
+
+	.row {
+		--bs-gutter-x: 1.6rem;
+		--bs-gutter-y: 1.6rem;
+	}
+
+	.section-title {
+		h2 {
+			background: linear-gradient(87deg, #fff 10.09%, #1c74f0 126.45%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.professional-img {
+		aspect-ratio: 546/320;
+	}
+}

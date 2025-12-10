@@ -1,0 +1,26 @@
+.partner-logo {
+
+	.partners-slider {
+		margin: 0 -0.5rem;
+
+		.slick-slide {
+			height: fit-content !important;
+
+			> div {
+				margin: 0 0.5rem !important;
+				background-color: var(--background);
+        border-radius: 0.8rem;
+        display: flex;
+        justify-content: center;
+
+        a{
+          width: unset !important;
+        }
+			}
+		}
+
+		img {
+			height: 68px;
+		}
+	}
+}

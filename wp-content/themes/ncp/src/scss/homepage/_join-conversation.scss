@@ -1,0 +1,19 @@
+.join-conversation {
+	.row {
+		--bs-gutter-x: 1.6rem;
+		--bs-gutter-y: 1.6rem;
+	}
+	.section-title {
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.join-conversation-content {
+		.stats-box {
+			p {
+				letter-spacing: -0.48px;
+			}
+		} 
+	}
+}

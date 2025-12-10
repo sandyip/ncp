@@ -1,0 +1,178 @@
+.past-speaker {
+	.past-speaker-slider {
+		margin: 0 -0.7rem;
+
+		.past-speaker-card {
+			.past-speaker-img {
+				position: relative;
+
+				&::after {
+					content: "";
+					position: absolute;
+					width: 160px;
+					height: 175px;
+					top: 18px;
+					left: 0;
+					border-radius: 16px;
+					background-color: var(--accent);
+					border: 1px solid var(--primary-light);
+					z-index: -1;
+				}
+
+				img {
+					width: 155px;
+					object-fit: cover;
+				}
+			}
+
+			.past-speaker-name {
+				h3 {
+					letter-spacing: -0.72px;
+				}
+			}
+		}
+
+		> .past-speaker-card {
+			&:not(:first-child) {
+				display: none !important;
+			}
+
+			&:first-child {
+				max-width: fit-content;
+				max-height: fit-content !important;
+			}
+		}
+
+		.slick-list,
+		.slick-track {
+			display: flex;
+
+			.slick-slide {
+				> div {
+					margin: 0 0.7rem;
+				}
+			}
+		}
+	}
+}
+
+.slider-btn {
+	.prev,
+	.next {
+		width: 40px;
+		height: 40px;
+		opacity: 0.2;
+
+		&:not(.slick-disabled) {
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		&.slick-disabled {
+			cursor: not-allowed !important;
+		}
+	}
+
+	.prev {
+		transform: scale(-1);
+	}
+}
+
+// @media (min-width: 476px) {
+// 	.past-speaker {
+// 		.past-speaker-slider {
+// 			.past-speaker-card {
+// 				.past-speaker-img {
+// 					&::after {
+// 						width: 161px;
+// 						height: 179px;
+// 					}
+// 					img{
+// 						width: 220px;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+// @media (max-width: 525px) {
+// 	.past-speaker {
+// 		.past-speaker-slider {
+// 			.past-speaker-card {
+// 				.past-speaker-img {
+// 					&::after {
+// 						width: 200px;
+// 						padding-left: 3.2rem;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+@media (min-width: 576px) {
+	.past-speaker {
+		.past-speaker-slider {
+			.past-speaker-card {
+				.past-speaker-img {
+					&::after {
+						width: 162px;
+						height: 179px;
+					}
+					img {
+						width: 220px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.past-speaker {
+		.past-speaker-slider {
+			.past-speaker-card {
+				.past-speaker-img {
+					&::after {
+						// width: 162px;
+						height: 181px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.past-speaker {
+		.section-title {
+			max-width: 578px;
+		}
+		.past-speaker-slider {
+			.past-speaker-card {
+				.past-speaker-img {
+					&::after {
+						width: 176px;
+						height: 198px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.past-speaker {
+		.past-speaker-slider {
+			.past-speaker-card {
+				.past-speaker-img {
+					&::after {
+						width: 208px;
+						height: 243px;
+					}
+				}
+			}
+		}
+	}
+}

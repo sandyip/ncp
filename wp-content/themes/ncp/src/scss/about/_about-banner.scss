@@ -1,0 +1,25 @@
+.about-banner {
+	.row {
+		--bs-gutter-x: 1.6rem;
+		--bs-gutter-y: 1.6rem;
+	}
+	.section-title {
+		h1 {
+			letter-spacing: -2.4px;
+			background: linear-gradient(87deg, #0e3a7c 10.16%, #24b2f0 89.3%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+
+	.about-banner-img {
+		aspect-ratio: 1440/524;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

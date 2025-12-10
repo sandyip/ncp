@@ -1,0 +1,67 @@
+.cloud-community {
+	position: relative;
+
+	.row {
+		--bs-gutter-x: 1.6rem;
+		--bs-gutter-y: 4rem;
+	}
+	.section-title {
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.cloud-community-card {
+		.cloud-community-img {
+			aspect-ratio: 466/244;
+			overflow: hidden;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+@media (min-width: 575px) {
+	.cloud-community {
+		&::after {
+			content: "";
+			position: absolute;
+			top: -130px;
+			right: 0;
+			width: 290px;
+			height: 400px;
+			background: url("../images/build-community.svg") no-repeat center/cover;
+			pointer-events: none;
+			z-index: -1;
+			pointer-events: none;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.cloud-community {
+		&::after {
+			width: 363px;
+			height: 505px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.cloud-community {
+		&::after {
+			width: 448px;
+			height: 623px;
+		}
+
+		.section-title {
+			max-width: 620px;
+			h2 {
+				max-width: 408px;
+			}
+		}
+	}
+}

@@ -1,0 +1,240 @@
+.header {
+	z-index: 5;
+	box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.07);
+
+	.header-top {
+		border-radius: 0 0 40px 40px;
+		p {
+			letter-spacing: -0.12px;
+		}
+	}
+
+	.header-content {
+		.header-logo {
+			aspect-ratio: 256/60;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	.primary-menu {
+		ul {
+			li {
+				a {
+					color: var(--title);
+					line-height: 150%;
+					letter-spacing: -0.14px;
+				}
+
+				&:hover,
+				&.active,
+				&.current-menu-item {
+					> a {
+						color: var(--primary-light);
+            
+					}
+				}
+
+				// &.menu-item-has-children {
+				// 	// > a {
+				// 	// 	position: relative;
+				// 	// 	// padding-right: 1.6rem;
+				// 	// 	// padding-right: 1.6rem;
+
+				// 	// 	// &::after {
+				// 	// 	// 	content: "";
+				// 	// 	// 	width: 1.2rem;
+				// 	// 	// 	height: 1.2rem;
+				// 	// 	// 	background: url(../images/icons/triangle-down.svg) no-repeat
+				// 	// 	// 		center/cover;
+				// 	// 	// 	position: absolute;
+				// 	// 	// 	right: 0;
+				// 	// 	// 	top: 50%;
+				// 	// 	// 	transform: translateY(-50%);
+				// 	// 	// }
+				// 	// }
+
+				// 	&.active,
+				// 	&.current-menu-item {
+				// 		> a {
+				// 			color: var(--primary);
+				// 		}
+				// 	}
+
+				// 	// ul {
+				// 	// 	display: none;
+				// 	// }
+				// }
+			}
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.header {
+		.primary-menu {
+			position: fixed;
+			inset: 0;
+			z-index: 9;
+			background-color: var(--black-100);
+			backdrop-filter: blur(10px);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.25s ease-in-out;
+
+			&.active {
+				opacity: 1;
+				visibility: visible;
+
+				.primary-menu-wrapper {
+					transform: translateX(0);
+
+					li {
+						animation: slideFromLeft 0.1s linear forwards;
+
+						@for $i from 1 through 10 {
+							&:nth-child(#{$i}) {
+								animation-delay: 0.1s + ($i * 0.1s);
+							}
+						}
+					}
+				}
+			}
+
+			.primary-menu-wrapper {
+				max-width: 32rem;
+				background-color: var(--white);
+				margin-left: auto;
+				height: 100vh;
+				// height: 100%;
+				// max-width: 100vh;
+				overflow: auto;
+				transform: translateX(100%);
+				transition: all 0.3s ease-in-out;
+
+				.header_logo {
+					max-width: 12rem;
+				}
+
+				ul {
+					li {
+						transform: translateX(100%);
+
+						a {
+							display: block;
+							padding: 1.2rem 0;
+						}
+
+						// &.menu-item-has-children {
+						// 	a {
+						// 		display: flex;
+						// 		align-items: center;
+						// 		justify-content: space-between;
+						// 		padding: 0.8rem 0;
+						// 	}
+
+						// 	ul {
+						// 		padding-left: 1.2rem;
+						// 	}
+						// }
+					}
+				}
+			}
+		}
+	}
+}
+
+.sticky-header {
+	position: fixed;
+	top: 0rem;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-150%);
+	transition: all 0.25s linear;
+	z-index: 8;
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.header {
+		background-color: transparent;
+	}
+}
+
+// @media (min-width: 992px) {
+// 	.header {
+// 		.primary-menu {
+// 			.primary-menu-wrapper {
+// 				ul {
+// 					li {
+// 						&.menu-item-has-children {
+// 							position: relative;
+
+// 							ul {
+// 								position: absolute;
+// 								top: calc(100% + 1rem);
+// 								background: var(--white);
+// 								border-radius: 1.2rem;
+// 								padding: 1.2rem;
+// 								min-width: 30rem;
+// 								box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.08);
+// 								max-height: 40rem;
+// 								overflow: auto;
+// 								z-index: 8;
+
+// 								li {
+// 									a {
+// 										// padding: 16px;
+// 										&::after {
+// 											content: "→";
+// 											width: 10px;
+// 											height: 8px;
+// 											background-repeat: no-repeat;
+// 											background-size: contain;
+// 											display: inline-block;
+// 											margin-left: 4px;
+// 											opacity: 0;
+
+// 											color: var(--primary);
+// 										}
+
+// 										&:hover {
+// 											color: var(--primary);
+
+// 											&::after {
+// 												opacity: 1;
+// 											}
+// 										}
+// 									}
+
+// 									&:hover {
+// 										background-color: var(--background) !important;
+// 										border-radius: 8px;
+// 									}
+// 								}
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+@keyframes slideFromLeft {
+	from {
+		transform: translateX(100px);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}

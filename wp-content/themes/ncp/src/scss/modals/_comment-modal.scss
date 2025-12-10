@@ -1,0 +1,16 @@
+.makura-modal {
+	.makura-modal-body {
+		.section-title {
+			h3 {
+				font-family: var(--inter);
+				letter-spacing: -0.48px;
+			}
+		}
+		.comment-form {
+			.row {
+				--bs-gutter-x: 0.8rem;
+				--bs-gutter-y: 0.8rem;
+			}
+		}
+	}
+}

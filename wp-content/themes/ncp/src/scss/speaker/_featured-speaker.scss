@@ -1,0 +1,40 @@
+.featured-speaker {
+	.section-title {
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.row {
+		--bs-gutter-x: 1.6rem;
+		--bs-gutter-y: 5.2rem;
+	}
+
+	.speaker-card-wrapper {
+		.speaker-card {
+			max-height: 136px;
+			.speaker-img {
+				aspect-ratio: 168/209;
+
+				img {
+					width: 135px;
+					position: relative;
+					top: -10%;
+					object-fit: cover;
+				}
+			}
+
+			.speaker-name {
+				letter-spacing: -0.8px;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.featured-speaker {
+		.section-title {
+			max-width: 578px;
+		}
+	}
+}

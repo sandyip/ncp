@@ -1,0 +1,46 @@
+.become-professional {
+	.section-title {
+		h2 {
+			letter-spacing: -1.6px;
+		}
+	}
+
+	.general-content-box {
+		> p:first-child {
+			font-weight: 700;
+			font-size: 1.6rem;
+			line-height: 150%;
+		}
+
+		ol {
+			// list-style: none !important;
+			padding: 0.4rem 3.2rem;
+			border-left: 4px solid var(--primary-light);
+			li {
+				list-style: none !important;
+				display: flex;
+				gap: 8px;
+
+				+ li {
+					margin-top: 1.6rem;
+				}
+
+				span {
+					background-color: var(--background);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 24px;
+					height: 24px;
+					border-radius: 50%;
+				}
+				p {
+					a {
+						color: var(--primary-light);
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
