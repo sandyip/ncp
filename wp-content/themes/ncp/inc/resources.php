@@ -106,3 +106,21 @@ add_action('acf/init', function() {
     ));
   }
 });
+
+/* Add custom classes to list item "li" */
+function add_additional_class_on_li($classes, $item, $args) {
+    if (isset($args->add_li_class)) {
+        $classes[] = $args->add_li_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 10, 3);
+
+/* Add custom classes to anchor item "a" */
+function add_additional_class_on_a($atts, $item, $args) {
+    if (isset($args->add_a_class)) {
+        $atts['class'] = $args->add_a_class;
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 10, 3);
