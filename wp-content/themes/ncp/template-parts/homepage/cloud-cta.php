@@ -4,26 +4,52 @@
       <div class="row justify-content-between align-items-center">
         <div class="col-md-6 order-md-1 order-2">
           <div class="section-title">
-            <h2 class="mb-28 text-32 leading-130">Become Part of Nepal Cloud Professionals</h2>
-            <p class="mb-28 text-white leading-150">Ready to grow your cloud skills and network with industry leaders?
-              Join our community to access exclusive events, mentorship from Microsoft MVPs, and hands-on learning
-              opportunities. Whether you’re a beginner or a seasoned pro, there’s a place for you.</p>
+            <?php if ($section_heading = get_sub_field('section_heading')) : ?>
+              <h2 class="mb-28 text-32 leading-130"><?php echo esc_html($section_heading); ?></h2>
+            <?php endif; ?>
+
+            <?php if ($section_description = get_sub_field('section_description')) : ?>
+              <p class="mb-28 text-white leading-150"><?php echo $section_description; ?></p>
+            <?php endif; ?>
+
           </div>
           <div class="d-flex gap-lg-16 gap-8 flex-wrap">
-            <a href="#"
-              class="py-12 px-36 bg-primary-light text-white hover-bg-white hover-text-primary-light rounded-48 text-center">Join
-              Now</a>
-            <a href="#"
-              class="border-white hover-border-primary-light text-white py-12 px-36 rounded-48 text-center leading-150">Attend an
-              Event</a>
+            <?php
+            $link = get_sub_field('button_1');
+            if ($link) :
+              $link_url = $link['url'];
+              $link_title = $link['title'];
+              $link_target = $link['target'] ? $link['target'] : '_self';
+            ?>
+              <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"
+                class="py-12 px-36 bg-primary-light text-white hover-bg-white hover-text-primary-light rounded-48 text-center"><?php echo esc_html($link_title); ?></a>
+            <?php endif; ?>
+
+
+            <?php
+            $link = get_sub_field('button_2');
+            if ($link) :
+              $link_url = $link['url'];
+              $link_title = $link['title'];
+              $link_target = $link['target'] ? $link['target'] : '_self';
+            ?>
+              <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"
+                class="border-white hover-border-primary-light text-white py-12 px-36 rounded-48 text-center leading-150"><?php echo esc_html($link_title); ?></a>
+            <?php endif; ?>
+
           </div>
         </div>
-        <div class="col-md-6 order-md-2 order-1">
-          <div class="professional-img">
-            <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/professional-svg2.png" alt=""
-              class="img-fluid" />
+
+        <?php
+        $image = get_sub_field('image');
+        if ($image) : ?>
+          <div class="col-md-6 order-md-2 order-1">
+            <div class="professional-img">
+              <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"
+                class="img-fluid" />
+            </div>
           </div>
-        </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
