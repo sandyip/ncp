@@ -5,13 +5,19 @@
 
 get_header();
 
-get_template_part("/template-parts/about/about-banner", null);
-get_template_part("/template-parts/about/who-we-are", null);
-get_template_part("/template-parts/about/mission", null);
-get_template_part("/template-parts/about/vision", null);
-get_template_part("/template-parts/about/our-journey", null);
-get_template_part("/template-parts/about/our-organizers", null);
+$layoutBasePath = get_template_directory() . '/template-parts/about/';
 
+if (have_rows('about_page_content')) :
+  while (have_rows('about_page_content')) :
+    the_row();
+    $layout = get_row_layout();
+    $file   = $layoutBasePath . str_replace('_', '-', $layout) . '.php';
+
+    if (file_exists($file)) {
+      include $file;
+    }
+  endwhile;
+endif;
 ?>
 
 <?php get_footer(); ?>

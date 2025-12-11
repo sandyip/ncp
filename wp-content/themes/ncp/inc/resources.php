@@ -184,3 +184,31 @@ function event_custom_post_type() {
 
   
 add_action( 'init', 'event_custom_post_type', 0 );
+
+// Page breadcrumb
+function ncp_breadcrumb() {
+    echo '<p class="text-primary-light page-path mb-4 leading-150 text-12 text-uppercase fw-700">';
+    echo '<a href="' . home_url() . '" class="text-primary-light">Home</a>';
+
+    if (is_page()) {
+        echo ' / ' . get_the_title();
+    }
+
+    elseif (is_single()) {
+        $category = get_the_category();
+        if ($category) {
+            echo ' / ' . $category[0]->name;
+        }
+        echo ' / ' . get_the_title();
+    }
+
+    elseif (is_category()) {
+        echo ' / ' . single_cat_title('', false);
+    }
+
+    elseif (is_archive()) {
+        echo ' / ' . post_type_archive_title('', false);
+    }
+
+    echo '</p>';
+}
