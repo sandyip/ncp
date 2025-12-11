@@ -1,7 +1,17 @@
 <div class="contact-form p-32 bg-background rounded-16">
-  <p class="text-24 fw-600 leading-150 text-title mb-8">Fill out the form to reach us out</p>
-  <p class="mb-24">Join us to propose topics, engage with experts, and stay updated on cloud trends.</p>
-  <div class="row">
+  <!-- contact form title -->
+  <?php if ($contact_form_title = get_field('contact_form_title')) : ?>
+    <p class="text-24 fw-600 leading-150 text-title mb-8"><?php echo esc_html($contact_form_title); ?></p>
+  <?php endif; ?>
+  <!-- !! contact form title -->
+
+  <!-- contact form subtitle -->
+  <?php if ($contact_form_subtitle = get_field('contact_form_subtitle')) : ?>
+    <p class="mb-24"><?php echo esc_html($contact_form_subtitle); ?></p>
+  <?php endif; ?>
+  <!-- !! contact form subtitle -->
+
+  <!-- <div class="row">
     <div class="col-md-6">
       <div class="input-field">
         <input type="text" id="name" name="name" placeholder="Full Name" value="" />
@@ -41,5 +51,12 @@
   <div class="submit-btn">
     <input type="submit" value="Submit Message"
       class="py-12 px-48 border-0 rounded-36 leading-150 bg-submit-bg text-white">
-  </div>
+  </div> -->
+<?php if ( $shortcode = get_field( 'shortcode' ) ) : ?>
+    <?php echo do_shortcode( $shortcode ); ?>
+<?php endif; ?>
+
 </div>
+
+
+	
