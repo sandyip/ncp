@@ -190,25 +190,34 @@ function ncp_breadcrumb() {
     echo '<p class="text-primary-light page-path mb-4 leading-150 text-12 text-uppercase fw-700">';
     echo '<a href="' . home_url() . '" class="text-primary-light">Home</a>';
 
-    if (is_page()) {
+    if ( is_home() && !is_front_page() ) {
+        // Blog posts index page
+        $blog_page_id = get_option('page_for_posts');
+        if ( $blog_page_id ) {
+            echo ' / ' . get_the_title( $blog_page_id );
+        }
+    }
+
+    elseif ( is_page() ) {
         echo ' / ' . get_the_title();
     }
 
-    elseif (is_single()) {
+    elseif ( is_single() ) {
         $category = get_the_category();
-        if ($category) {
+        if ( $category ) {
             echo ' / ' . $category[0]->name;
         }
         echo ' / ' . get_the_title();
     }
 
-    elseif (is_category()) {
-        echo ' / ' . single_cat_title('', false);
+    elseif ( is_category() ) {
+        echo ' / ' . single_cat_title( '', false );
     }
 
-    elseif (is_archive()) {
-        echo ' / ' . post_type_archive_title('', false);
+    elseif ( is_archive() ) {
+        echo ' / ' . post_type_archive_title( '', false );
     }
 
     echo '</p>';
 }
+

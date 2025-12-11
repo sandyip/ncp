@@ -186,6 +186,33 @@
 
 <?php get_template_part("/template-parts/modals/makura-toast", null); ?>
 <?php wp_footer(); ?>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    
+    // Show more categories
+    const moreCatBtn = document.querySelector(".show-more-categories");
+    if (moreCatBtn) {
+        moreCatBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelectorAll(".hidden-category").forEach(item => item.classList.remove("d-none"));
+            moreCatBtn.style.display = "none";
+        });
+    }
+
+    // Show more archive
+    const moreArchiveBtn = document.querySelector(".show-more-archive");
+    if (moreArchiveBtn) {
+        moreArchiveBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelectorAll(".hidden-archive").forEach(item => item.classList.remove("d-none"));
+            moreArchiveBtn.style.display = "none";
+        });
+    }
+
+});
+</script>
+
 </body>
 
 </html>
