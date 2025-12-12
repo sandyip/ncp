@@ -185,39 +185,69 @@ function event_custom_post_type() {
   
 add_action( 'init', 'event_custom_post_type', 0 );
 
-// Page breadcrumb
 function ncp_breadcrumb() {
-    echo '<p class="text-primary-light page-path mb-4 leading-150 text-12 text-uppercase fw-700">';
+
+    echo '<p class="text-primary-light page-path mb-4 leading-150 text-12 text-uppercase fw-700 text-center">';
+
+    // Home
     echo '<a href="' . home_url() . '" class="text-primary-light">Home</a>';
 
+    // Blog Page Info
+    $blog_page_id    = get_option('page_for_posts');
+    $blog_page_link  = $blog_page_id ? get_permalink($blog_page_id) : '';
+    $blog_page_title = $blog_page_id ? get_the_title($blog_page_id) : 'Blog';
+
+    // BLOG LIST PAGE
     if ( is_home() && !is_front_page() ) {
-        // Blog posts index page
-        $blog_page_id = get_option('page_for_posts');
-        if ( $blog_page_id ) {
-            echo ' / ' . get_the_title( $blog_page_id );
-        }
+        echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
+            . esc_html($blog_page_title) .
+            '</a>';
     }
 
-    elseif ( is_page() ) {
-        echo ' / ' . get_the_title();
-    }
-
+    // SINGLE POST
     elseif ( is_single() ) {
+
+        // Blog Link
+        echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
+            . esc_html($blog_page_title) .
+            '</a>';
+
+        // Category
         $category = get_the_category();
         if ( $category ) {
-            echo ' / ' . $category[0]->name;
+            echo ' / <a href="' . get_category_link($category[0]->term_id) . '" class="text-primary-light">'
+                . esc_html($category[0]->name) .
+                '</a>';
         }
-        echo ' / ' . get_the_title();
+
+        // Post Title
+        echo ' / <span class="text-primary-light">' . get_the_title() . '</span>';
     }
 
+    // PAGE
+    elseif ( is_page() ) {
+        echo ' / <span class="text-primary-light">' . get_the_title() . '</span>';
+    }
+
+    // CATEGORY PAGE
     elseif ( is_category() ) {
-        echo ' / ' . single_cat_title( '', false );
+        echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
+            . esc_html($blog_page_title) .
+            '</a>';
+
+        echo ' / <span class="text-primary-light">' . single_cat_title('', false) . '</span>';
     }
 
+    // ARCHIVE
     elseif ( is_archive() ) {
-        echo ' / ' . post_type_archive_title( '', false );
+        echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
+            . esc_html($blog_page_title) .
+            '</a>';
+
+        echo ' / <span class="text-primary-light">' . post_type_archive_title('', false) . '</span>';
     }
 
     echo '</p>';
 }
+
 

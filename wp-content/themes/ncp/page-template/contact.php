@@ -1,4 +1,3 @@
-F
 <?php
 /**
  * Template Name: Contact
