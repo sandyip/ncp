@@ -181,10 +181,9 @@ function event_custom_post_type() {
     register_post_type( 'our_events', $args );
   
 }
-
-  
 add_action( 'init', 'event_custom_post_type', 0 );
 
+// Breadcrumb function
 function ncp_breadcrumb() {
 
     echo '<p class="text-primary-light page-path mb-4 leading-150 text-12 text-uppercase fw-700 text-center">';
@@ -251,3 +250,56 @@ function ncp_breadcrumb() {
 }
 
 
+// Our partner custom post type
+
+function Partners_custom_post_type() {
+  
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Our partners', 'Post Type General Name', 'ncp' ),
+            'singular_name'       => _x( 'Our partner', 'Post Type Singular Name', 'ncp' ),
+            'menu_name'           => __( 'Our partners', 'ncp' ),
+            'parent_item_colon'   => __( 'Parent Our partner', 'ncp' ),
+            'all_items'           => __( 'All Our partners', 'ncp' ),
+            'view_item'           => __( 'View Our partner', 'ncp' ),
+            'add_new_item'        => __( 'Add New Our partner', 'ncp' ),
+            'add_new'             => __( 'Add New', 'ncp' ),
+            'edit_item'           => __( 'Edit Our partner', 'ncp' ),
+            'update_item'         => __( 'Update Our partner', 'ncp' ),
+            'search_items'        => __( 'Search Our partner', 'ncp' ),
+            'not_found'           => __( 'Not Found', 'ncp' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'ncp' ),
+        );
+          
+    // Set other options for Custom Post Type
+          
+        $args = array(
+            'label'               => __( 'our partners', 'ncp' ),
+            'description'         => __( 'Our partner news and reviews', 'ncp' ),
+            'labels'              => $labels,
+            // Features this CPT supports in Post Editor
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            // You can associate this CPT with a taxonomy or custom taxonomy. 
+            'taxonomies'          => array( 'genres' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-businessperson',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+      
+        );
+          
+        // Registering your Custom Post Type
+        register_post_type( 'our_partners', $args );
+      
+    }
+    add_action( 'init', 'Partners_custom_post_type', 0 );

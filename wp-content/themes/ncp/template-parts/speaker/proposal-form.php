@@ -58,7 +58,7 @@
       <?php if (have_rows('speaker_proposal_form')) : ?>
         <?php while (have_rows('speaker_proposal_form')) :
           the_row(); ?>
-          <div class="col-lg-6">
+          <div class="col-lg-6" id="speakerProposalForm">
             <div class="speaker-proposal-form bg-background p-32 rounded-16">
               <!-- speaker_proposal_form_title -->
               <?php if ($speaker_proposal_form_title = get_sub_field('speaker_proposal_form_title')) : ?>
