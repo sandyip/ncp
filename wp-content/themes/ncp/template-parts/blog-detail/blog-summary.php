@@ -11,8 +11,19 @@
         <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)); ?>" class="img-fluid" />
       </div>
       <div class="general-content-box py-24 px-lg-48 px-24">
-        <!-- <h2 class="text-18 fw-600 leading-150">Summary of the Blog:</h2> -->
-          <?php the_content(); ?>
+        <!-- summary title -->
+        <?php if ($summary_title = get_field('summary_title')) : ?>
+          <h2 class="text-18 fw-600 leading-150"><?php echo esc_html($summary_title); ?></h2>
+        <?php endif; ?>
+        <!-- !! summary title -->
+
+        <!-- summary content -->
+        <p>
+          <?php if ($summary_content = get_field('summary_content')) : ?>
+            <?php echo $summary_content; ?>
+          <?php endif; ?>
+        </p>
+        <!-- !! summary content -->
       </div>
       <p></p>
     </div>

@@ -49,30 +49,22 @@ get_header();
 
                     <aside class="toc-wrapper blog-chapters py-16 pl-8 pr-16 d-none d-lg-block">
                         <div class="faq-item">
-                            <ul>
-                                <li class="">
-                                    <a href="#introduction" data-scroll="introduction">Understanding the Role of SEO in Blogging</a>
-                                </li>
-                                <li>
-                                    <a href="#crafting-blog-content" data-scroll="crafting-blog-content">Crafting Blog Content That
-                                        Resonates with Readers</a>
-                                </li>
-                                <li>
-                                    <a href="#optimizing-on-page-elements" data-scroll="optimizing-on-page-elements">Optimizing On-Page
-                                        Elements for Higher Rankings</a>
-                                </li>
-                                <li>
-                                    <a href="#promoting-and-distributing" data-scroll="promoting-and-distributing">Promoting and
-                                        Distributing Your Blog for Maximum Reach</a>
-                                </li>
-                                <li>
-                                    <a href="#measuring-success" data-scroll="measuring-success">Measuring Success and Continuously
-                                        Improving</a>
-                                </li>
-                                <li>
-                                    <a href="#conclusion" data-scroll="conclusion">Conclusion</a>
-                                </li>
-                            </ul>
+                            <?php if (have_rows('content')) : ?>
+                                <ul>
+                                    <?php while (have_rows('content')) :
+                                        the_row(); 
+                                        $id = get_sub_field('id');
+                                        $heading = get_sub_field('heading');
+                                        ?>
+                                        <?php if ($heading && $id) : ?>
+                                        <li class="">
+                                            <a href="#<?php echo esc_html($id); ?>" data-scroll="<?php echo esc_html($id); ?>"><?php echo esc_html($heading); ?></a>
+                                        </li>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
+                                </ul>
+
+                            <?php endif; ?>
                         </div>
                     </aside>
                 </div>
