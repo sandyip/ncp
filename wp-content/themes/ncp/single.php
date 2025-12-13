@@ -1,6 +1,14 @@
 <?php
 get_header();
 ?>
+<?php
+if ( is_singular('post') && have_posts() ) {
+  the_post();
+  set_post_views( get_the_ID() );
+  rewind_posts();
+}
+?>
+
 <section class="blog-detail">
     <?php
     get_template_part('template-parts/blog-detail/blog-summary', null);
@@ -37,7 +45,7 @@ get_header();
                             <li>
                                 <span class="text-title">Views</span>
                                 <span class="text-title">:</span>
-                                <span class="text-12">593</span>
+                                <span class="text-12"><?php echo get_post_views( get_the_ID() ); ?></span>
                             </li>
                             <li>
                                 <span class="text-title">Comments</span>

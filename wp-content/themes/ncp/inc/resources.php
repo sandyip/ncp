@@ -94,21 +94,22 @@ add_action('wp_head', 'preload_theme_fonts', 1);
 
 
 // acf theme options
-add_action('acf/init', function() {
-  if( function_exists('acf_add_options_page') ) {
+add_action('acf/init', function () {
+    if (function_exists('acf_add_options_page')) {
 
-    acf_add_options_page(array(
-        'page_title'    => 'Theme General Settings',
-        'menu_title'    => 'Theme Settings',
-        'menu_slug'     => 'theme-general-settings',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
-    ));
-  }
+        acf_add_options_page(array(
+            'page_title'    => 'Theme General Settings',
+            'menu_title'    => 'Theme Settings',
+            'menu_slug'     => 'theme-general-settings',
+            'capability'    => 'edit_posts',
+            'redirect'      => false
+        ));
+    }
 });
 
 /* Add custom classes to list item "li" */
-function add_additional_class_on_li($classes, $item, $args) {
+function add_additional_class_on_li($classes, $item, $args)
+{
     if (isset($args->add_li_class)) {
         $classes[] = $args->add_li_class;
     }
@@ -117,7 +118,8 @@ function add_additional_class_on_li($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 10, 3);
 
 /* Add custom classes to anchor item "a" */
-function add_additional_class_on_a($atts, $item, $args) {
+function add_additional_class_on_a($atts, $item, $args)
+{
     if (isset($args->add_a_class)) {
         $atts['class'] = $args->add_a_class;
     }
@@ -126,36 +128,37 @@ function add_additional_class_on_a($atts, $item, $args) {
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 10, 3);
 
 // Event custom post type
-  
-function event_custom_post_type() {
-  
-// Set UI labels for Custom Post Type
+
+function event_custom_post_type()
+{
+
+    // Set UI labels for Custom Post Type
     $labels = array(
-        'name'                => _x( 'Our Events', 'Post Type General Name', 'ncp' ),
-        'singular_name'       => _x( 'Our Event', 'Post Type Singular Name', 'ncp' ),
-        'menu_name'           => __( 'Our Events', 'ncp' ),
-        'parent_item_colon'   => __( 'Parent Our Event', 'ncp' ),
-        'all_items'           => __( 'All Our Events', 'ncp' ),
-        'view_item'           => __( 'View Our Event', 'ncp' ),
-        'add_new_item'        => __( 'Add New Our Event', 'ncp' ),
-        'add_new'             => __( 'Add New', 'ncp' ),
-        'edit_item'           => __( 'Edit Our Event', 'ncp' ),
-        'update_item'         => __( 'Update Our Event', 'ncp' ),
-        'search_items'        => __( 'Search Our Event', 'ncp' ),
-        'not_found'           => __( 'Not Found', 'ncp' ),
-        'not_found_in_trash'  => __( 'Not found in Trash', 'ncp' ),
+        'name'                => _x('Our Events', 'Post Type General Name', 'ncp'),
+        'singular_name'       => _x('Our Event', 'Post Type Singular Name', 'ncp'),
+        'menu_name'           => __('Our Events', 'ncp'),
+        'parent_item_colon'   => __('Parent Our Event', 'ncp'),
+        'all_items'           => __('All Our Events', 'ncp'),
+        'view_item'           => __('View Our Event', 'ncp'),
+        'add_new_item'        => __('Add New Our Event', 'ncp'),
+        'add_new'             => __('Add New', 'ncp'),
+        'edit_item'           => __('Edit Our Event', 'ncp'),
+        'update_item'         => __('Update Our Event', 'ncp'),
+        'search_items'        => __('Search Our Event', 'ncp'),
+        'not_found'           => __('Not Found', 'ncp'),
+        'not_found_in_trash'  => __('Not found in Trash', 'ncp'),
     );
-      
-// Set other options for Custom Post Type
-      
+
+    // Set other options for Custom Post Type
+
     $args = array(
-        'label'               => __( 'our events', 'ncp' ),
-        'description'         => __( 'Our Events news and reviews', 'ncp' ),
+        'label'               => __('our events', 'ncp'),
+        'description'         => __('Our Events news and reviews', 'ncp'),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields',),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array( 'genres' ),
+        'taxonomies'          => array('genres'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -174,17 +177,17 @@ function event_custom_post_type() {
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest' => true,
-  
+
     );
-      
+
     // Registering your Custom Post Type
-    register_post_type( 'our_events', $args );
-  
+    register_post_type('our_events', $args);
 }
-add_action( 'init', 'event_custom_post_type', 0 );
+add_action('init', 'event_custom_post_type', 0);
 
 // Breadcrumb function
-function ncp_breadcrumb() {
+function ncp_breadcrumb()
+{
 
     echo '<p class="text-primary-light page-path mb-4 leading-150 text-12 text-uppercase fw-700 text-center">';
 
@@ -197,14 +200,14 @@ function ncp_breadcrumb() {
     $blog_page_title = $blog_page_id ? get_the_title($blog_page_id) : 'Blog';
 
     // BLOG LIST PAGE
-    if ( is_home() && !is_front_page() ) {
+    if (is_home() && !is_front_page()) {
         echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
             . esc_html($blog_page_title) .
             '</a>';
     }
 
     // SINGLE POST
-    elseif ( is_single() ) {
+    elseif (is_single()) {
 
         // Blog Link
         echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
@@ -213,7 +216,7 @@ function ncp_breadcrumb() {
 
         // Category
         $category = get_the_category();
-        if ( $category ) {
+        if ($category) {
             echo ' / <a href="' . get_category_link($category[0]->term_id) . '" class="text-primary-light">'
                 . esc_html($category[0]->name) .
                 '</a>';
@@ -224,12 +227,12 @@ function ncp_breadcrumb() {
     }
 
     // PAGE
-    elseif ( is_page() ) {
+    elseif (is_page()) {
         echo ' / <span class="text-primary-light">' . get_the_title() . '</span>';
     }
 
     // CATEGORY PAGE
-    elseif ( is_category() ) {
+    elseif (is_category()) {
         echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
             . esc_html($blog_page_title) .
             '</a>';
@@ -238,7 +241,7 @@ function ncp_breadcrumb() {
     }
 
     // ARCHIVE
-    elseif ( is_archive() ) {
+    elseif (is_archive()) {
         echo ' / <a href="' . esc_url($blog_page_link) . '" class="text-primary-light">'
             . esc_html($blog_page_title) .
             '</a>';
@@ -252,54 +255,77 @@ function ncp_breadcrumb() {
 
 // Our partner custom post type
 
-function Partners_custom_post_type() {
-  
+function Partners_custom_post_type()
+{
+
     // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'Our partners', 'Post Type General Name', 'ncp' ),
-            'singular_name'       => _x( 'Our partner', 'Post Type Singular Name', 'ncp' ),
-            'menu_name'           => __( 'Our partners', 'ncp' ),
-            'parent_item_colon'   => __( 'Parent Our partner', 'ncp' ),
-            'all_items'           => __( 'All Our partners', 'ncp' ),
-            'view_item'           => __( 'View Our partner', 'ncp' ),
-            'add_new_item'        => __( 'Add New Our partner', 'ncp' ),
-            'add_new'             => __( 'Add New', 'ncp' ),
-            'edit_item'           => __( 'Edit Our partner', 'ncp' ),
-            'update_item'         => __( 'Update Our partner', 'ncp' ),
-            'search_items'        => __( 'Search Our partner', 'ncp' ),
-            'not_found'           => __( 'Not Found', 'ncp' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'ncp' ),
-        );
-          
+    $labels = array(
+        'name'                => _x('Our partners', 'Post Type General Name', 'ncp'),
+        'singular_name'       => _x('Our partner', 'Post Type Singular Name', 'ncp'),
+        'menu_name'           => __('Our partners', 'ncp'),
+        'parent_item_colon'   => __('Parent Our partner', 'ncp'),
+        'all_items'           => __('All Our partners', 'ncp'),
+        'view_item'           => __('View Our partner', 'ncp'),
+        'add_new_item'        => __('Add New Our partner', 'ncp'),
+        'add_new'             => __('Add New', 'ncp'),
+        'edit_item'           => __('Edit Our partner', 'ncp'),
+        'update_item'         => __('Update Our partner', 'ncp'),
+        'search_items'        => __('Search Our partner', 'ncp'),
+        'not_found'           => __('Not Found', 'ncp'),
+        'not_found_in_trash'  => __('Not found in Trash', 'ncp'),
+    );
+
     // Set other options for Custom Post Type
-          
-        $args = array(
-            'label'               => __( 'our partners', 'ncp' ),
-            'description'         => __( 'Our partner news and reviews', 'ncp' ),
-            'labels'              => $labels,
-            // Features this CPT supports in Post Editor
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            // You can associate this CPT with a taxonomy or custom taxonomy. 
-            'taxonomies'          => array( 'genres' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-businessperson',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-      
-        );
-          
-        // Registering your Custom Post Type
-        register_post_type( 'our_partners', $args );
-      
+
+    $args = array(
+        'label'               => __('our partners', 'ncp'),
+        'description'         => __('Our partner news and reviews', 'ncp'),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields',),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'          => array('genres'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-businessperson',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+
+    );
+
+    // Registering your Custom Post Type
+    register_post_type('our_partners', $args);
+}
+add_action('init', 'Partners_custom_post_type', 0);
+
+
+
+// Get post views
+function get_post_views($post_id)
+{
+    $count = get_post_meta($post_id, 'post_views_count', true);
+    return $count ? (int) $count : 0;
+}
+
+// Increase post views
+function set_post_views($post_id)
+{
+
+    if (is_admin() || ! is_singular('post')) {
+        return;
     }
-    add_action( 'init', 'Partners_custom_post_type', 0 );
+
+    $count = get_post_meta($post_id, 'post_views_count', true);
+    $count = $count ? $count + 1 : 1;
+
+    update_post_meta($post_id, 'post_views_count', $count);
+}
