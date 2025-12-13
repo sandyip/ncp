@@ -32,21 +32,33 @@
 
     <!-- cpt loop -->
     <?php
+    $today = date('Ymd');
+
     $args = array(
       'post_type'      => 'our_events',
       'posts_per_page' => 4,
-      'orderby'        => 'date',
-      'order'          => 'DESC'
+      'meta_query'     => array(
+        array(
+          'key'     => 'event_date',
+          'value'   => $today,
+          'compare' => '>=',
+          'type'    => 'NUMERIC'
+        )
+      ),
+      'meta_key' => 'event_date',
+      'orderby'  => 'meta_value_num',
+      'order'    => 'ASC'
     );
 
-    $events = new WP_Query($args);
+    $upcoming = new WP_Query($args);
 
-    if ($events->have_posts()) : ?>
+    if ($upcoming->have_posts()) :
+    ?>
       <div class="d-flex gap-8 justify-content-center">
         <?php
         $i = 1; // loop counter
 
-        while ($events->have_posts()) : $events->the_post();
+        while ($upcoming->have_posts()) : $upcoming->the_post();
 
           $event_date     = get_field('event_date');
           $event_time     = get_field('event_time');
@@ -57,6 +69,11 @@
           // Add class only on second item
           $extra_class = ($i > 1) ? ' d-none d-sm-block' : '';
         ?>
+
+          <?php
+          $raw_date = get_field('event_date'); // Ymd
+          $dateObj  = DateTime::createFromFormat('Ymd', $raw_date);
+          ?>
           <div class="upcoming-event-card rounded-8<?php echo $extra_class; ?>">
             <div class="upcoming-event-img rounded-8">
               <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)); ?>"
