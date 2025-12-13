@@ -15,54 +15,24 @@
     <div class="makura-modal-body p-sm-48 p-24">
 
       <div class="section-title mb-24">
-        <h3 class="text-24 fw-600 leading-150 mb-8">Join Nepal Cloud Professionals Today!</h3>
-        <p class="leading-150">Connect with IT professionals, developers, and Microsoft MVPs to grow your skills and shape
-          the future of cloud technology in Nepal.</p>
+        <!-- memebership title -->
+        <?php if ($become_a_membership_title = get_field('become_a_membership_title', 'options')) : ?>
+          <h3 class="text-24 fw-600 leading-150 mb-8"><?php echo esc_html($become_a_membership_title); ?></h3>
+        <?php endif; ?>
+        <!-- !! memebership title -->
+
+        <!-- memebreship description -->
+        <?php if ($become_a_membership_description = get_field('become_a_membership_description', 'options')) : ?>
+          <p class="leading-150"><?php echo $become_a_membership_description; ?></p>
+        <?php endif; ?>
+        <!-- !! memebership description -->
       </div>
 
       <div class="membership-form">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="input-field">
-              <input type="text" id="name" name="name" placeholder="Full Name" value="" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <input type="email" id="email" name="email" placeholder="Email Address" value="" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <input type="number" id="number" name="number" placeholder="Phone Number" value="" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-field">
-              <input type="text" id="role" name="role" placeholder="Your Role" value="" />
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="select-wrapper">
-              <select name="" id="interest-type">
-                <option value="" disabled selected>Select your Interests</option>
-                <option value="">Solo Type</option>
-                <option value="">Multiple Type</option>
-                <option value="">Double Type</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-md-12">
 
-            <div class="input-field mb-16">
-              <textarea placeholder="Your message to us" value="" id="message" name="message"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center rounded-48 py-12 px-36 bg-submit-bg">
-          <a href="#" class="text-16 leading-149 text-white">Join Now</a>
-        </div>
+        <?php if ($form_shortcode = get_field('form_shortcode', 'options')) : ?>
+          <?php echo do_shortcode($form_shortcode); ?>
+        <?php endif; ?>
       </div>
     </div>
   </div>
