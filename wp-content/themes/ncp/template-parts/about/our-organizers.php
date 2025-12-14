@@ -18,114 +18,51 @@
 
     <div class="organizer-card-wrapper">
       <div class="row">
-        <!-- organizer 1 -->
-        <?php if (have_rows('organizer_1')) : ?>
-          <?php while (have_rows('organizer_1')) :
+        <!-- organizer -->
+        <?php if (have_rows('organizers')) : ?>
+          <?php while (have_rows('organizers')) :
             the_row();
-            $organizer_1_image = get_sub_field('organizer_1-image');
-            $organizer_1_role = get_sub_field('organizer_1-role');
-            $organizer_1_name = get_sub_field('organizer_1-name');
+            $organizer_image = get_sub_field('organizer_image');
+            $organizer_role = get_sub_field('organizer_role');
+            $organizer_name = get_sub_field('organizer_name');
+            $organizer_description = get_sub_field('description');
+            $linkedin = get_sub_field('linkedin_link');
           ?>
             <div class="col-lg-4 col-sm-6">
-              <a href="#" data-modal="teamModal" class="organizer-card d-flex gap-24 bg-accent rounded-16 border-primary-light align-items-center pr-16">
-                <!-- organizer 1 image -->
-                <?php if ($organizer_1_image) : ?>
+              <a href="#"
+                data-modal="teamModal"
+                class="organizer-card d-flex gap-24 bg-accent rounded-16 border-primary-light align-items-center pr-16"
+                data-name="<?php echo esc_attr($organizer_name); ?>"
+                data-role="<?php echo esc_attr($organizer_role); ?>"
+                data-description="<?php echo esc_attr($organizer_description); ?>"
+                data-image="<?php echo esc_url($organizer_image['url']); ?>"
+                data-linkedin="<?php echo esc_attr($linkedin); ?>">
+                <!-- organizer image -->
+                <?php if ($organizer_image) : ?>
                   <div class="organizer-img">
-                    <img src="<?php echo esc_url($organizer_1_image['url']); ?>" alt="<?php echo esc_attr($organizer_1_image['alt']); ?>" class="img-fluid">
+                    <img src="<?php echo esc_url($organizer_image['url']); ?>" alt="<?php echo esc_attr($organizer_image['alt']); ?>" class="img-fluid">
                   </div>
                 <?php endif; ?>
-                <!-- !! organizer 1 image -->
+                <!-- !! organizer image -->
 
                 <div>
-                  <!-- organizer 1 role -->
-                  <?php if ($organizer_1_role) : ?>
-                    <p class="text-gray leading-150 mb-8"><?php echo esc_html($organizer_1_role); ?></p>
+                  <!-- organizer role -->
+                  <?php if ($organizer_role) : ?>
+                    <p class="text-gray leading-150 mb-8"><?php echo esc_html($organizer_role); ?></p>
                   <?php endif; ?>
-                  <!-- !! organizer 1 role -->
+                  <!-- !! organizer role -->
 
-                  <!-- organizer 1 name -->
-                  <?php if ($organizer_1_name) : ?>
-                    <p class="text-20 fw-700 text-title speaker-name"><?php echo esc_html($organizer_1_name); ?></p>
+                  <!-- organizer name -->
+                  <?php if ($organizer_name) : ?>
+                    <p class="text-20 fw-700 text-title speaker-name"><?php echo esc_html($organizer_name); ?></p>
                   <?php endif; ?>
-                  <!-- !!organizer 1 name -->
+                  <!-- !!organizer name -->
                 </div>
               </a>
             </div>
           <?php endwhile; ?>
         <?php endif; ?>
-        <!-- !! organizer 1 -->
-
-        <!-- organizer 2 -->
-        <?php if (have_rows('organizer_2')) : ?>
-          <?php while (have_rows('organizer_2')) :
-            the_row();
-            $organizer_2_image = get_sub_field('organizer_2-image');
-            $organizer_2_role = get_sub_field('organizer_2-role');
-            $organizer_2_name = get_sub_field('organizer_2-name');
-          ?>
-            <a href="#" data-modal="teamModal" class="col-lg-4 col-sm-6">
-              <div class="organizer-card d-flex gap-24 bg-accent rounded-16 border-primary-light align-items-center pr-16">
-                <!-- organizer 2 image -->
-                <?php if ($organizer_2_image) : ?>
-                  <div class="organizer-img">
-                    <img src="<?php echo esc_url($organizer_2_image['url']); ?>" alt="<?php echo esc_attr($organizer_2_image['alt']); ?>" class="img-fluid">
-                  </div>
-                <?php endif; ?>
-                <!-- !! organizer 2 image -->
-                <div>
-                  <!-- organizer 2 role -->
-                  <?php if ($organizer_2_role) : ?>
-                    <p class="text-gray leading-250 mb-8"><?php echo esc_html($organizer_2_role); ?></p>
-                  <?php endif; ?>
-                  <!-- !! organizer 2 role -->
-
-                  <!-- organizer 2 name -->
-                  <?php if ($organizer_2_name) : ?>
-                    <p class="text-20 fw-700 text-title speaker-name"><?php echo esc_html($organizer_2_name); ?></p>
-                  <?php endif; ?>
-                  <!-- !!organizer 2 name -->
-                </div>
-              </div>
-            </a>
-          <?php endwhile; ?>
-        <?php endif; ?>
-        <!-- !! organizer 2 -->
-
-        <!-- organizer 3 -->
-        <?php if (have_rows('organizer_3')) : ?>
-          <?php while (have_rows('organizer_3')) :
-            the_row();
-            $organizer_3_image = get_sub_field('organizer_3-image');
-            $organizer_3_role = get_sub_field('organizer_3-role');
-            $organizer_3_name = get_sub_field('organizer_3-name');
-          ?>
-            <div class="col-lg-4 col-sm-6">
-              <a href="#" data-modal="teamModal" class="organizer-card d-flex gap-24 bg-accent rounded-16 border-primary-light align-items-center pr-16">
-                <!-- organizer 3 image -->
-                <?php if ($organizer_3_image) : ?>
-                  <div class="organizer-img">
-                    <img src="<?php echo esc_url($organizer_3_image['url']); ?>" alt="<?php echo esc_attr($organizer_3_image['alt']); ?>" class="img-fluid">
-                  </div>
-                <?php endif; ?>
-                <!-- !! organizer 3 image -->
-                <div>
-                  <!-- organizer 3 role -->
-                  <?php if ($organizer_3_role) : ?>
-                    <p class="text-gray leading-250 mb-8"><?php echo esc_html($organizer_3_role); ?></p>
-                  <?php endif; ?>
-                  <!-- !! organizer 3 role -->
-                  <!-- organizer 3 name -->
-                  <?php if ($organizer_3_name) : ?>
-                    <p class="text-20 fw-700 text-title speaker-name"><?php echo esc_html($organizer_3_name); ?></p>
-                  <?php endif; ?>
-                  <!-- !!organizer 3 name -->
-                </div>
-              </a>
-            </div>
-          <?php endwhile; ?>
-        <?php endif; ?>
-        <!-- !! organizer 3 -->
-
+        <!-- !! organizer -->
       </div>
     </div>
   </div>

@@ -1,13 +1,22 @@
+<!-- Organizer image, role, name, description, and LinkedIn links are being fetched via a script included in the footer file. -->
+
 <div class="makura-modal" id="teamModal">
   <div class="makura-modal-content p-24 p-md-48 d-flex flex-column">
     <div class="makura-modal-header ">
       <div class="mb-24">
+        <!-- team image -->
         <div class="team-image-container bg-primary-blue rounded-8 mb-24">
-          <img src="<?php echo get_parent_theme_file_uri() ?>/assets/images/speaker1.png" alt="" class="img-fluid" />
+          <img src="" alt="" class="img-fluid team-image" />
         </div>
-        <p class="mb-8 leading-150 py-4 px-12 bg-accent text-primary-light fw-700 text-12 rounded-8">Lead
-          Organizer</p>
-        <h3 class="text-24 fw-600 leading-150">Ravi Bhattarai</h3>
+        <!-- !! team image -->
+
+        <!-- team role -->
+        <p class="mb-8 leading-150 py-4 px-12 bg-accent text-primary-light fw-700 text-12 rounded-8 team-role"></p>
+        <!-- !! team role -->
+
+          <!-- team name -->
+        <h3 class="text-24 fw-600 leading-150 team-name"></h3>
+        <!-- !! team name -->
       </div>
       <button close-modal="makura-modal" class="d-flex gap-8">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -21,22 +30,18 @@
       </button>
     </div>
     <div class="makura-modal-body justify-content-between">
-      <div class="team-member-content general-content-box mb-24 styled-list">
-        <p>Ravi Bhattarai is a Microsoft MVP and cloud computing expert with over 10 years of experience in Azure
-          architecture and IT leadership. As the Lead Organizer of Nepal Cloud Professionals, Ravi spearheads events
-          like Nepal Cloud Summit and Global Azure Kathmandu, fostering a vibrant community of IT professionals and
-          developers in Nepal.
-        </p>
-        <p>Ravi has been instrumental in growing Nepal Cloud Professionals since 2017, leading initiatives that empower
-          Nepal’s tech ecosystem. Coordinates Nepal Cloud Summit and Global Azure Kathmandu, bringing together 500+
-          professionals annually. Guides aspiring cloud developers through workshops on Azure and Power Platform. Drives
-          engagement via Meetup and social platforms, fostering collaboration and innovation.</p>
+      <!-- description -->
+      <div class="team-member-content general-content-box mb-24 styled-list team-description">
+        
       </div>
+      <!-- !! description -->
     </div>
 
     <div class="team-socials pt-24 border-t-border">
       <p class="text-14 fw-500 leading-150">Reach out at linkedin:</p>
-      <a href="#" class="text-12 fw-600 leading-150 text-primary-light text-decoration-underline">https://np.linkedin.com/in/ravibhattarai</a>
+      <!-- linkedin link -->
+      <a href="#" class="text-12 fw-600 leading-150 text-primary-light text-decoration-underline team-linkedin" target="_blank"></a>
+      <!-- !! linkedin link -->
     </div>
 
   </div>

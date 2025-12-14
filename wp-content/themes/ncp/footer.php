@@ -47,7 +47,7 @@
                   'menu' => 'quick-links',
                   'container' => '',
                   'items_wrap' => '<ul>%3$s</ul>',
-                  'add_li_class' => 'mb-4', 
+                  'add_li_class' => 'mb-4',
                   'add_a_class'  => 'text-white hover-text-primary-light fw-400 leading-150'
                 )
               );
@@ -187,32 +187,66 @@
 <?php get_template_part("/template-parts/modals/makura-toast", null); ?>
 <?php wp_footer(); ?>
 
+<!-- ------------------------------------ -->
+<!-- Script to display show more categories and show more archive in the sidebar in blog page -->4
+<!-- ------------------------------------ -->
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    
+  document.addEventListener("DOMContentLoaded", function() {
+
     // Show more categories
     const moreCatBtn = document.querySelector(".show-more-categories");
     if (moreCatBtn) {
-        moreCatBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.querySelectorAll(".hidden-category").forEach(item => item.classList.remove("d-none"));
-            moreCatBtn.style.display = "none";
-        });
+      moreCatBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelectorAll(".hidden-category").forEach(item => item.classList.remove("d-none"));
+        moreCatBtn.style.display = "none";
+      });
     }
 
     // Show more archive
     const moreArchiveBtn = document.querySelector(".show-more-archive");
     if (moreArchiveBtn) {
-        moreArchiveBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            document.querySelectorAll(".hidden-archive").forEach(item => item.classList.remove("d-none"));
-            moreArchiveBtn.style.display = "none";
-        });
+      moreArchiveBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelectorAll(".hidden-archive").forEach(item => item.classList.remove("d-none"));
+        moreArchiveBtn.style.display = "none";
+      });
     }
 
-});
+  });
 </script>
+<!-- ------------------------------------ -->
+<!-- !!!! Script to display show more categories and show more archive in the sidebar in blog page -->4
+<!-- ------------------------------------ -->
 
+
+<!-- ------------------------------------ -->
+<!-- Script to fetch data from the ACF repeater field and dynamically populate a popup modal in the ‘Our Organizers’ section on the About Us page.-->4
+<!-- ------------------------------------ -->
+<script>
+  document.querySelectorAll('.organizer-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const modal = document.getElementById(this.dataset.modal);
+
+      modal.querySelector('.team-name').textContent = this.dataset.name;
+      modal.querySelector('.team-role').textContent = this.dataset.role;
+
+      // IMPORTANT: use innerHTML to render <p> tags
+      modal.querySelector('.team-member-content').innerHTML = this.dataset.description;
+
+      modal.querySelector('.team-image').src = this.dataset.image;
+      modal.querySelector('.team-linkedin').href = this.dataset.linkedin;
+      modal.querySelector('.team-linkedin').textContent = this.dataset.linkedin;
+
+      modal.style.display = 'flex'; // assuming flex centering
+    });
+  });
+</script>
+<!-- ------------------------------------ -->
+<!-- !!!!! Script to fetch data from the ACF repeater field and dynamically populate a popup modal in the ‘Our Organizers’ section on the About Us page.-->4
+<!-- ------------------------------------ -->
 </body>
-
 </html>
