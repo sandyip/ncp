@@ -217,12 +217,12 @@
   });
 </script>
 <!-- ------------------------------------ -->
-<!-- !!!! Script to display show more categories and show more archive in the sidebar in blog page -->4
+<!-- !!!! Script to display show more categories and show more archive in the sidebar in blog page -->
 <!-- ------------------------------------ -->
 
 
 <!-- ------------------------------------ -->
-<!-- Script to fetch data from the ACF repeater field and dynamically populate a popup modal in the ‘Our Organizers’ section on the About Us page.-->4
+<!-- Script to fetch data from the ACF repeater field and dynamically populate a popup modal in the ‘Our Organizers’ section on the About Us page.-->
 <!-- ------------------------------------ -->
 <script>
   document.querySelectorAll('.organizer-card').forEach(card => {
@@ -246,7 +246,7 @@
   });
 </script>
 <!-- ------------------------------------ -->
-<!-- !!!!! Script to fetch data from the ACF repeater field and dynamically populate a popup modal in the ‘Our Organizers’ section on the About Us page.-->4
+<!-- !!!!! Script to fetch data from the ACF repeater field and dynamically populate a popup modal in the ‘Our Organizers’ section on the About Us page.-->
 <!-- ------------------------------------ -->
 </body>
 </html>
